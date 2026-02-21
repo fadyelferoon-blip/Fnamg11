@@ -1,0 +1,50 @@
+name: fer3oon
+description: FER3OON Trading Application
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # UI
+  cupertino_icons: ^1.0.6
+  
+  # WebView
+  webview_flutter: ^4.4.2
+  
+  # HTTP & API
+  http: ^1.1.2
+  
+  # Storage
+  shared_preferences: ^2.2.2
+  
+  # Device Info
+  device_info_plus: ^9.1.1
+  
+  # URL Launcher
+  url_launcher: ^6.2.2
+  
+  # Permissions
+  permission_handler: ^11.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_launcher_icons: ^0.13.1
+
+flutter:
+  uses-material-design: true
+  
+  assets:
+    - assets/images/
+
+flutter_launcher_icons:
+  android: true
+  ios: false
+  image_path: "assets/images/logo.png"
+  adaptive_icon_background: "#000000"
+  adaptive_icon_foreground: "assets/images/logo.png"
