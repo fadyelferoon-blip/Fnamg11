@@ -160,8 +160,8 @@ const Users = () => {
                         {user.status !== 'APPROVED' && (
                           <button
                             className="btn-action btn-approve"
-                            onClick={() => handleStatusChange(user._id, 'APPROVED')}
-                            disabled={updating === user._id}
+                            onClick={() => handleStatusChange(user.uid, 'APPROVED')}
+                            disabled={updating === user.uid}
                           >
                             ✓ Approve
                           </button>
@@ -169,8 +169,8 @@ const Users = () => {
                         {user.status !== 'BLOCKED' && (
                           <button
                             className="btn-action btn-block"
-                            onClick={() => handleStatusChange(user._id, 'BLOCKED')}
-                            disabled={updating === user._id}
+                            onClick={() => handleStatusChange(user.uid, 'BLOCKED')}
+                            disabled={updating === user.uid}
                           >
                             ✕ Block
                           </button>
@@ -178,8 +178,8 @@ const Users = () => {
                         {user.status !== 'PENDING' && (
                           <button
                             className="btn-action btn-pending"
-                            onClick={() => handleStatusChange(user._id, 'PENDING')}
-                            disabled={updating === user._id}
+                            onClick={() => handleStatusChange(user.uid, 'PENDING')}
+                            disabled={updating === user.uid}
                           >
                             ⏳ Pending
                           </button>
