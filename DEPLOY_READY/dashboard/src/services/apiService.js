@@ -10,10 +10,8 @@ const apiService = {
     const params = status ? { status } : {};
     return axios.get('/users', { params });
   },
-  
-  // ✅ FIXED: Use PATCH and uid instead of PUT and userId
-  updateUserStatus: (uid, status) => 
-    axios.patch(`/users/${uid}/status`, { status }),
+  updateUserStatus: (userId, status) => 
+    axios.patch(`/users/${userId}/status`, { status }),
 
   // Stats
   getStats: () => axios.get('/stats'),
