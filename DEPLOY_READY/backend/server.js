@@ -17,18 +17,28 @@ connectDB();
 // CORS Configuration
 const allowedOrigins = [
   'https://gregarious-clarity-production-68ec.up.railway.app',
+  'https://fnamg11-production-4c99.up.railway.app', // ✅ ضفنا الدومين الجديد
   'http://localhost:3000',
   'http://localhost:5173'
 ];
 
 const corsOptions = {
   origin: function (origin, callback) {
-    // Allow requests with no origin (like mobile apps or curl requests)
+    // Allow requests with no origin (mobile apps / curl)
     if (!origin) return callback(null, true);
-    
-    if (allowedOrigins.indexOf(origin) !== -1 || process.env.NODE_ENV !== 'production') {
+
+    // تنظيف الـ origin (يشيل / لو موجودة في الآخر)
+    const normalizedOrigin = origin.endsWith('/') ? origin.slice(0, -1) : origin;
+
+    const isAllowed = allowedOrigins.some(o => {
+      const normalizedAllowed = o.endsWith('/') ? o.slice(0, -1) : o;
+      return normalizedAllowed === normalizedOrigin;
+    });
+
+    if (isAllowed || process.env.NODE_ENV !== 'production') {
       callback(null, true);
     } else {
+      console.log('❌ Blocked by CORS:', origin); // مهم للديباج
       callback(new Error('Not allowed by CORS'));
     }
   },
